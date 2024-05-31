@@ -1,0 +1,156 @@
+body{
+    height: 100vh;
+}
+
+.chat-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.userid-input{
+    width: 25%;
+    margin: 5px;
+    margin-left: auto;
+    margin-right:auto;
+    display: flex;
+    flex-direction: row;
+}
+.id-area {
+    width: 80%;
+    margin: 5px;
+    margin-left:0;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: inset;
+    border-color: whitesmoke;
+}
+.id-area::placeholder {
+    text-align: center;
+    font-size:18px;
+}
+.enterbtn{
+    width:auto;
+    border:none;
+    border-radius: 5px;
+    background-color: #fef01b;
+    font-size: 15px;
+    padding: 8px 16px;
+    margin:5px;
+    margin-right:0;
+}
+.left-chatting-container{
+    width: 25%;
+    margin: 5px;
+    margin-left: auto;
+    margin-right:auto;
+    background-color: #b0cbe0;
+    color: black;
+    border: 2px solid #aaaaaa;
+    border-radius: 5px;
+    overflow:hidden;
+    height: 100%;
+}
+.left-content{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow-y:scroll;
+    height:75%
+}
+.left-content::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.left-content::-webkit-scrollbar-thumb {
+    background-color:  #aaaaaa;
+    border-radius: 5px;
+}
+
+.whitearea{
+    height:25%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.left-inputtxt{
+    border: none;
+    background: none;
+    outline: none;
+    resize: none;
+    overflow:auto;
+    font-size:15px;
+    height:100%;
+}
+.left-button{
+    border:none;
+    border-radius: 5px;
+    background-color: #fef01b;
+    font-size: 18px;
+    padding: 8px 16px;
+    margin:5px;
+    margin-bottom:15px;
+    align-self: flex-end;
+}
+.r-container {
+    clear: both;
+    display: flex;
+    align-items: flex-end; 
+    justify-content: flex-end;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.l-container{
+    clear: both;
+    display: flex;
+    align-items: flex-end; 
+    margin-top:5px;
+    margin-bottom:20px;
+}
+
+.rightuser{
+    background-color: #fef01b;
+    /*float: right;*/
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px;
+    margin-right:2px;
+    max-width: 65%;
+    font-size:15px;
+    color: black; 
+    margin-bottom: 0;
+    white-space:pre-wrap;
+    word-wrap: break-word;
+}
+
+.leftuser{
+    background-color: #ffffff;
+    /*float: left;*/
+    padding: 10px;
+    border-radius: 8px;
+    margin:10px;
+    max-width: 65%;
+    font-size:15px;
+    color: black;
+    margin-top:0;
+    margin-bottom: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.opponent-id{
+    font-size:10px;
+    color:black;
+    margin-top:20px;
+    margin-left:10px;
+    margin-bottom:2px;
+}
+
+.time{
+    font-size: 10px;
+    color: black;
+    margin-left: 3px;
+    margin-right:3px;
+}

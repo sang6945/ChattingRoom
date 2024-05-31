@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat Application</h1>
+    <div>
+        <input type="text" id="username" placeholder="Enter your username">
+        <button onclick="registerUser()">Register</button>
+    </div>
+    <div>
+        <input type="text" id="opponent_username" placeholder="Enter opponent username">
+        <button onclick="createRoom()">Create Room</button>
+    </div>
+    <div>
+        <input type="text" id="view_username" placeholder="Enter your username to view chat rooms">
+        <button onclick="viewRooms()">View Chat Rooms</button>
+    </div>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        function registerUser() {
+            var username = document.getElementById('username').value;
+            $.ajax({
+                url: '/register',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({username: username}),
+                success: function(response) {
+                    alert('Registration successful! User ID: ' + response.user_id);
+                },
+                error: function(xhr) {
+                    alert('Error: ' + xhr.responseText);
+                }
+            });
+        }
+
+        function createRoom() {
+            var username = document.getElementById('username').value;
+            var opponent_username = document.getElementById('opponent_username').value;
+            $.ajax({
+                url: '/create_room',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({username: username, opponent: opponent_username}),
+                success: function(response) {
+                    alert('Chat room created successfully! Room ID: ' + response.room_id);
+                },
+                error: function(xhr) {
+                    alert('Error: ' + xhr.responseText);
+                }
+            });
+        }
+
+        function viewRooms() {
+            var username = document.getElementById('view_username').value;
+            window.location.href = `/chat_rooms?username=${username}`;
+        }
+    </script>
+</body>
+</html>
