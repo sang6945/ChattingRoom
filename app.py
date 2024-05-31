@@ -115,9 +115,7 @@ def create_chat_room():
     if not room:
         room = ChattingRoom(
             reporter_id=reporter.id, 
-            owner_id=owner.id, 
-            ##reporter_name=User.query.filter_by(id=reporter.id).first().username, #####수정 시작지점
-            ##owner_name=User.query.filter_by(id=owner.id).first().username
+            owner_id=owner.id,
         )
         db.session.add(room)
         db.session.commit()
